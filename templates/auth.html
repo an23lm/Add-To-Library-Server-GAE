@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
+        <script>const jtok='{{jtok["jtok"]}}'; const dev_token_exp='{{jtok["dev_token_exp"]}}'; const auth={{auth}};</script>
+        <script src="{{ url_for('static', filename='main-auth.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+        <title>Add to Library - Auth</title>
+    </head>
+    <body>
+        <div id="content">
+            <h1><script> auth ? document.write('Authorize') : document.write('Unauthorizing')</script> Add to Library</h1>
+            <script> 
+                if (auth == true) {
+                    document.write('<h4>Authorize "Add to Library" to use your iCloud Music Library to add songs.</h4>');
+                }
+            </script>
+            <div id="load-indicator" class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <h3 id="auth-result"></h3>
+        </div>
+    </body>
+</html>
