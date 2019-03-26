@@ -7,6 +7,7 @@ class DevToken(object):
 
 	def to_json(self):
 		return {
+			DevTokenKeys.dev_token: self.dev_token,
 			DevTokenKeys.user_token: self.user_token,
 			DevTokenKeys.issue_on: self.issue_on,
 			DevTokenKeys.expire_in: self.expire_in

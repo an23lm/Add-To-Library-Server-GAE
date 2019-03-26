@@ -36,13 +36,26 @@ def auth():
 	jt = {'jtok': dev_token, 'dev_token_exp': cookie_expire_time_string}
 	return render_template('auth.html', jtok=jt, auth='true')
 
-# Unauth user with Apple Music
-@app.route('/unauth')
-def unauth():
-	usertoken = request.headers.get('usertoken')
+@app.route('/registeruser', methods=['GET', 'POST'])
+def register_user():
+	user_token = request.headers.get('applemusicusertoken')
+	dev_token = request.headers.get('developertoken')
 	storefront = request.headers.get('applestorefront')
-	devtoken = request.headers.get('developertoken')
 
+	print(user_token)
+	print(dev_token)
+	print(storefront)
+
+	firestore.complete_auth_dev_token(dev_token, user_token)
+	firestore.register_user(user_token, dev_token, storefront)
+
+	return jsonify({'SUCCESS': 'true'})
+
+# Unauth user with Apple Music
+@app.route('/unauth', methods=['GET', 'POST'])
+def unauth():
+	usertoken = request.args.get('applemusicusertoken')
+	devtoken = request.args.get('developertoken')
 	jt = {"jtok": devtoken}
 	return render_template('auth.html', jtok=jt, auth='false')
 	
