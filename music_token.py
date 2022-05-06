@@ -5,14 +5,10 @@ import datetime
 import jwt
 
 
-secret = """-----BEGIN PRIVATE KEY-----
-MIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgAjZejuImELFRDFjX
-RVp9PfeqWMY5NILZKV2KI6uwWRGgCgYIKoZIzj0DAQehRANCAATvXlIFaLG5WrIc
-P4i7s878QBNnBIiItDPOzk1TW0KpSXYJf7zgIcZFi2G5D2r69+z9x2bvsK+aZsDB
-Y8mJadSP
------END PRIVATE KEY-----"""
-keyId = "HK8AWCPH65"
-teamId = "F698675JBS"
+# generate apple music api keys here https://developer.apple.com/account/resources/authkeys/list
+secret = ""
+keyId = ""
+teamId = ""
 alg = 'ES256'
 
 headers = {
